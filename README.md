@@ -14,7 +14,8 @@ developed with :heart: by <a href="https://www.chainside.net">chainside</a>
 # Introduction
 
 This project is the **official** SDK library for the integration with the [Chainside Pay]() Platform.
-
+This repository contains the source code compatible with jdk1.7. The main repository of the library can be found at
+https://github.com/chainside/webpos-sdk-java
 # Installation
 
 Follow these steps to install the SDK library into your system. You can install it either using
@@ -43,12 +44,6 @@ In gradle.build:
 compile 'net.chainside.webpossdk:webpos-sdk-java:1.1.0'
 ```
 
-## Java7 Compatibility
-
-This repository contains the source code compatible with jdk1.7. The main repository of the library can be found at
-https://github.com/chainside/webpos-sdk-java
-
-
 #### TLS version
 If you are experiencing protocol errors during the download, you might need to upgrade the TLS version used from
 the dependency manager.
@@ -76,6 +71,7 @@ used by the library:
 | **proxy**  | HashMap | No | `null` | Proxy Configuration
 
 
+#### Proxy settings 
 If a proxy configuration is given, the requests are sent using the configured proxy. A proxy configuration
 must be specified as:
 
