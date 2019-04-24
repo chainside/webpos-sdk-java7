@@ -83,7 +83,7 @@ must be specified as:
 |-----------|------|----------|---------|-------------|
 | **hostname** | _string_ | Yes | `null` | Hostname of the proxy server |
 | **port** | _int_ | Yes | `null` | Port of the proxy server |
-| **protocol** | _string_ | Yes | `null` | Proxy server protocol (http | https)|
+| **protocol** | _string_ | Yes | `null` | Proxy server protocol (http , https)|
 | **credentials** | HashMap | No | `null` | Credentials to authenticate on the proxy server
 
 If the proxy server requires authentication, credentials must be specified in the proxy configuration
@@ -94,7 +94,28 @@ parameters as:
 | **user** | _string_ | Yes | `live` | Username to perform authentication  |
 | **password** | _string_ | Yes | `null` | Proxy server password |
 
+Example:
 
+```java
+import net.webpossdk.api.ChainsideClient;
+import net.webpossdk.object.CallbackList;
+
+HashMap<String, Object> config = new HashMap<>();
+config.put("mode", "live");
+config.put("clientId", "{webpos_client_id}");
+config.put("secret", "{webpos_secret}");
+config.put("proxy", new HashMap(){{
+    put("hostname", "{proxy.hostname}");
+    put("port", 8000);
+    put("protocol", "http");
+    put("credentials", new HashMap(){{
+        put("user", "{proxy.username}");    
+        put("password", "{proxy.password}");    
+    }});
+}});
+
+ChainsideClient client = new ChainsideClient(config); 
+```
 ## Client
 
 The Library exposes a _client_ object which is instantiated with the system configuration and
