@@ -18,7 +18,7 @@ public class ChainsideApiContext extends ApiContext {
         if (config.get("version") == null) config.put("version", "v1");
         if (config.get("accessTokenKey") == null) config.put("accessTokenKey", "___chainside.access.token___");
         if (config.get("timeout") == null) config.put("timeout", 10);
-        if (config.get("verifySSl") == null) config.put("verifySSL", true);
+        if (config.get("verifySSL") == null) config.put("verifySSL", true);
         if (config.get("cacheDriver") == null) config.put("cacheDriver", "2k");
         return config;
     }

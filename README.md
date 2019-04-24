@@ -24,7 +24,7 @@ With Maven plugin:
 
 ```bash
 mvn org.apache.maven.plugins:maven-dependency-plugin:2.1:get 
--Dartifact=net.chainside.webpossdk:webpos-sdk-java:1.0.0 
+-Dartifact=net.chainside.webpossdk:webpos-sdk-java7:1.1.0 
 -DrepoUrl=http://central.maven.org/maven2/
 ```
 
@@ -33,17 +33,28 @@ In pom.xml:
 ```xml
 <dependency>
             <groupId>net.chainside.webpossdk</groupId>
-            <artifactId>webpos-sdk-java</artifactId>
-            <version>1.0.0</version>
+            <artifactId>webpos-sdk-java7</artifactId>
+            <version>1.1.0</version>
 </dependency>
 ```
 
 In gradle.build:
 ```bash
-compile 'net.chainside.webpossdk:webpos-sdk-java:1.0.0'
+compile 'net.chainside.webpossdk:webpos-sdk-java:1.1.0'
 ```
 
+## Java7 Compatibility
 
+This repository contains the source code compatible with jdk1.7. The main repository of the library can be found at
+https://github.com/chainside/webpos-sdk-java
+
+
+#### TLS version
+If you are experiencing protocol errors during the download, you might need to upgrade the TLS version used from
+the dependency manager.
+Depending on the jdk1.7 version used, you might need to enable TLSv1.2 protocol to download dependencies.
+This can be achieved by passing -Dhttps.protocols=TLSv1.2 to the chosen package manager command
+ 
 
 
 # Structure
@@ -62,6 +73,26 @@ used by the library:
 | **mode** | _string_ | Yes | `live` | The SDK mode, can be `sandbox` or `live` |
 | **clientId** | _string_ | Yes | `null` | Your WebPos client id |
 | **secret** | _string_ | Yes | `null` | Your WebPos secret |
+| **proxy**  | HashMap | No | `null` | Proxy Configuration
+
+
+If a proxy configuration is given, the requests are sent using the configured proxy. A proxy configuration
+must be specified as:
+
+| Parameter | Type | Required | Default | Description |
+|-----------|------|----------|---------|-------------|
+| **hostname** | _string_ | Yes | `null` | Hostname of the proxy server |
+| **port** | _int_ | Yes | `null` | Port of the proxy server |
+| **protocol** | _string_ | Yes | `null` | Proxy server protocol (http | https)|
+| **credentials** | HashMap | No | `null` | Credentials to authenticate on the proxy server
+
+If the proxy server requires authentication, credentials must be specified in the proxy configuration
+parameters as:
+
+| Parameter | Type | Required | Default | Description |
+|-----------|------|----------|---------|-------------|
+| **user** | _string_ | Yes | `live` | Username to perform authentication  |
+| **password** | _string_ | Yes | `null` | Proxy server password |
 
 
 ## Client
