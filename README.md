@@ -25,7 +25,7 @@ With Maven plugin:
 
 ```bash
 mvn org.apache.maven.plugins:maven-dependency-plugin:2.1:get 
--Dartifact=net.chainside.webpossdk:webpos-sdk-java7:1.1.0 
+-Dartifact=net.chainside.webpossdk:webpos-sdk-java7:1.1.0  
 -DrepoUrl=http://central.maven.org/maven2/
 ```
 
@@ -41,7 +41,7 @@ In pom.xml:
 
 In gradle.build:
 ```bash
-compile 'net.chainside.webpossdk:webpos-sdk-java:1.1.0'
+compile 'net.chainside.webpossdk:webpos-sdk-java7:1.1.0'
 ```
 
 #### TLS version
