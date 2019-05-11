@@ -25,7 +25,7 @@ With Maven plugin:
 
 ```bash
 mvn org.apache.maven.plugins:maven-dependency-plugin:2.1:get 
--Dartifact=net.chainside.webpossdk:webpos-sdk-java7:1.2.0  
+-Dartifact=net.chainside.webpossdk:webpos-sdk-java7:1.3.0  
 -DrepoUrl=http://central.maven.org/maven2/
 ```
 
@@ -35,13 +35,13 @@ In pom.xml:
 <dependency>
             <groupId>net.chainside.webpossdk</groupId>
             <artifactId>webpos-sdk-java7</artifactId>
-            <version>1.2.0</version>
+            <version>1.3.0</version>
 </dependency>
 ```
 
 In gradle.build:
 ```bash
-compile 'net.chainside.webpossdk:webpos-sdk-java7:1.2.0'
+compile 'net.chainside.webpossdk:webpos-sdk-java7:1.3.0'
 ```
 
 #### TLS version
@@ -470,7 +470,23 @@ Payment order retrieval data
 
 
 
+## Exceptions
 
+Every exception raised due to Chainside error responses contains debug informations.
+
+```java
+
+try{
+    client.createPaymentOrder(paymentOrder)
+}catch (ChainsideHttpExceptio e){
+    System.out.println(e.getDebugInfo())
+    System.out.println(e.getRequestId())
+}
+
+```  
+Debug Info contains general information about request and response headers, body and status code.
+Request Id is an internal id which can be communicated to chainside in order to help debugging the
+problem in case this cannot be identified.
 
 ## Callbacks
 
