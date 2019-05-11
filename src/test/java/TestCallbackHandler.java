@@ -1,11 +1,12 @@
 import com.fasterxml.jackson.databind.ObjectMapper;
 import it.sdkboilerplate.exceptions.CallbackVerificationException;
 import net.webpossdk.api.ChainsideApiContext;
-import net.webpossdk.api.ChainsideClient;
 import net.webpossdk.api.ChainsideHeaders;
 import net.webpossdk.callbacks.ChainsideCallbackHandler;
 import net.webpossdk.lib.Hashers;
-import net.webpossdk.objects.*;
+import net.webpossdk.objects.CallbackPaymentOrder;
+import net.webpossdk.objects.PaymentCompletedCallback;
+import net.webpossdk.objects.TransactionCollection;
 import org.apache.commons.codec.binary.Base64;
 import org.junit.Assert;
 import org.junit.Test;

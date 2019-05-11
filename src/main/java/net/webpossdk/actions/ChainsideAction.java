@@ -8,6 +8,7 @@ import it.sdkboilerplate.hooks.PreSendHook;
 import it.sdkboilerplate.hooks.SuccessHook;
 import it.sdkboilerplate.http.SdkResponse;
 import it.sdkboilerplate.lib.ApiContext;
+import net.webpossdk.hooks.RequestIdHook;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -20,7 +21,9 @@ public abstract class ChainsideAction extends Action {
 
     @Override
     public ArrayList<Class<? extends FailureHook>> getFailureHooks() {
-        return new ArrayList();
+        ArrayList<Class<? extends FailureHook>> failureHooks = new ArrayList();
+        failureHooks.add(RequestIdHook.class);
+        return failureHooks;
     }
 
     @Override
