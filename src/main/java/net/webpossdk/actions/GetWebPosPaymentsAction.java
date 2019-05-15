@@ -57,7 +57,19 @@ public class GetWebPosPaymentsAction extends ChainsideAuthenticatedAction{
     public void setPosUuid(String value){
         this.setRouteParameter("pos_uuid", value);
     }
+    public void setPage(String value){
+        this.setQueryParameter("page", value);
+    }
+    public void setSortOrder(String value){
+        this.setQueryParameter("sort_order", value);
+    }
     public void setStatus(String value){
         this.setQueryParameter("status", value);
+    }
+    public void setSortBy(String value){
+        this.setQueryParameter("sort_by", value);
+    }
+    public void setPageSize(String value){
+        this.setQueryParameter("page_size", value);
     }
     }

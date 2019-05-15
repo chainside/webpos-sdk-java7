@@ -27,6 +27,12 @@ public class ChainsideClient{
 
 
     }
+    public ClientCredentialsLoginResponse clientCredentialsLogin(ClientCredentials clientCredentials)
+        throws SdkException{
+        ClientCredentialsLoginAction action = (ClientCredentialsLoginAction)this.factory.make("clientCredentialsLogin");
+        action.setClientCredentials(clientCredentials);
+        return (ClientCredentialsLoginResponse)action.run();
+        }
     public PaymentOrderDeletionResponse deletePaymentOrder(String paymentOrderUuid)
         throws SdkException{
         DeletePaymentOrderAction action = (DeletePaymentOrderAction)this.factory.make("deletePaymentOrder");
@@ -39,12 +45,24 @@ public class ChainsideClient{
         action.setPaymentOrderUuid(paymentOrderUuid);
         return (PaymentOrderRetrieval)action.run();
         }
-    public PaymentOrderList getWebPosPayments(String posUuid,String status)
+    public PaymentOrderList getWebPosPayments(String posUuid,String page,String sortOrder,String status,String sortBy,String pageSize)
         throws SdkException{
         GetWebPosPaymentsAction action = (GetWebPosPaymentsAction)this.factory.make("getWebPosPayments");
         action.setPosUuid(posUuid);
+        if (page != null){
+        action.setPage(page);
+        }
+        if (sortOrder != null){
+        action.setSortOrder(sortOrder);
+        }
         if (status != null){
         action.setStatus(status);
+        }
+        if (sortBy != null){
+        action.setSortBy(sortBy);
+        }
+        if (pageSize != null){
+        action.setPageSize(pageSize);
         }
         return (PaymentOrderList)action.run();
         }
@@ -53,12 +71,6 @@ public class ChainsideClient{
         CreatePaymentOrderAction action = (CreatePaymentOrderAction)this.factory.make("createPaymentOrder");
         action.setPaymentOrderCreation(paymentOrderCreation);
         return (PaymentOrderCreationResponse)action.run();
-        }
-    public ClientCredentialsLoginResponse clientCredentialsLogin(ClientCredentials clientCredentials)
-        throws SdkException{
-        ClientCredentialsLoginAction action = (ClientCredentialsLoginAction)this.factory.make("clientCredentialsLogin");
-        action.setClientCredentials(clientCredentials);
-        return (ClientCredentialsLoginResponse)action.run();
         }
     public CallbackList getCallbacks(String paymentOrderUuid)
         throws SdkException{
