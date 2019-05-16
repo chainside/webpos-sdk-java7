@@ -51,11 +51,12 @@ public class ClientCredentialsLoginAction extends ChainsideAuthenticatingAction{
     @Override
     public HashMap<String, String> getHeaders(){
         HashMap<String, String> headers = new HashMap();
-        headers.put("Content-Type", "application/json");
         headers.put("Accept", "application/json");
         headers.put("X-Api-Version", "v1");
+        headers.put("Content-Type", "application/json");
         return headers;
     }
+
     public void setClientCredentials(ClientCredentials value)
         throws UnserializableObjectException{
         this.setRequestBody(value);

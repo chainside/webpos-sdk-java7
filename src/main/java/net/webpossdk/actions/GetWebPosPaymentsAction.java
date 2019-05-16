@@ -49,27 +49,28 @@ public class GetWebPosPaymentsAction extends ChainsideAuthenticatedAction{
     @Override
     public HashMap<String, String> getHeaders(){
         HashMap<String, String> headers = new HashMap();
-        headers.put("Content-Type", "application/json");
         headers.put("Accept", "application/json");
         headers.put("X-Api-Version", "v1");
+        headers.put("Content-Type", "application/json");
         return headers;
     }
+
     public void setPosUuid(String value){
         this.setRouteParameter("pos_uuid", value);
     }
     public void setPage(String value){
         this.setQueryParameter("page", value);
     }
+    public void setPageSize(String value){
+        this.setQueryParameter("page_size", value);
+    }
+    public void setSortBy(String value){
+        this.setQueryParameter("sort_by", value);
+    }
     public void setSortOrder(String value){
         this.setQueryParameter("sort_order", value);
     }
     public void setStatus(String value){
         this.setQueryParameter("status", value);
-    }
-    public void setSortBy(String value){
-        this.setQueryParameter("sort_by", value);
-    }
-    public void setPageSize(String value){
-        this.setQueryParameter("page_size", value);
     }
     }

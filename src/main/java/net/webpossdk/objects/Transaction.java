@@ -12,13 +12,13 @@ import net.webpossdk.objects.schemas.*;
 import java.util.HashMap;
 
 public class Transaction extends SdkObject{
-    public OutCollection outs;
-    public Integer outs_sum;
-    public String txid;
-    public String blockchain_status;
     public String created_at;
-    public String status;
     public String normalized_txid;
+    public String blockchain_status;
+    public Integer outs_sum;
+    public OutCollection outs;
+    public String status;
+    public String txid;
     public Schema getSchema() throws JsonSerializationException{
             return new Schema(TransactionSchema.jsonSchema);
         }
@@ -27,23 +27,17 @@ public class Transaction extends SdkObject{
         subObjects.put("outs", OutCollection.class);
         return subObjects;
         }
-        public OutCollection getOuts(){
-            return this.outs;
+        public String getCreatedAt(){
+            return this.created_at;
         }
-        public void setOuts(OutCollection value){
-            this.outs = value;
+        public void setCreatedAt(String value){
+            this.created_at = value;
         }
-        public Integer getOutsSum(){
-            return this.outs_sum;
+        public String getNormalizedTxid(){
+            return this.normalized_txid;
         }
-        public void setOutsSum(Integer value){
-            this.outs_sum = value;
-        }
-        public String getTxid(){
-            return this.txid;
-        }
-        public void setTxid(String value){
-            this.txid = value;
+        public void setNormalizedTxid(String value){
+            this.normalized_txid = value;
         }
         public String getBlockchainStatus(){
             return this.blockchain_status;
@@ -51,11 +45,17 @@ public class Transaction extends SdkObject{
         public void setBlockchainStatus(String value){
             this.blockchain_status = value;
         }
-        public String getCreatedAt(){
-            return this.created_at;
+        public Integer getOutsSum(){
+            return this.outs_sum;
         }
-        public void setCreatedAt(String value){
-            this.created_at = value;
+        public void setOutsSum(Integer value){
+            this.outs_sum = value;
+        }
+        public OutCollection getOuts(){
+            return this.outs;
+        }
+        public void setOuts(OutCollection value){
+            this.outs = value;
         }
         public String getStatus(){
             return this.status;
@@ -63,11 +63,11 @@ public class Transaction extends SdkObject{
         public void setStatus(String value){
             this.status = value;
         }
-        public String getNormalizedTxid(){
-            return this.normalized_txid;
+        public String getTxid(){
+            return this.txid;
         }
-        public void setNormalizedTxid(String value){
-            this.normalized_txid = value;
+        public void setTxid(String value){
+            this.txid = value;
         }
         public Transaction(){}
 }
