@@ -168,7 +168,7 @@ methods to send requests:
 |--------|
 | `deletePaymentOrder`(paymentOrderUuid:uuid) : [PaymentOrderDeletionResponse](#PaymentOrderDeletionResponse)| 
 | `getPaymentOrder`(paymentOrderUuid:uuid) : [PaymentOrderRetrieval](#PaymentOrderRetrieval)| 
-| `getWebPosPayments`(posUuid:uuid,status:string,pageSize:integer,page:integer,sortOrder:string,sortBy:string) : [PaymentOrderList](#PaymentOrderList)| 
+| `getWebPosPayments`(posUuid:uuid,page:string,pageSize:string,sortBy:integer,sortOrder:string,status:string) : [PaymentOrderList](#PaymentOrderList)| 
 | `createPaymentOrder`(paymentordercreation:PaymentOrderCreation) : [PaymentOrderCreationResponse](#PaymentOrderCreationResponse)| 
 | `getCallbacks`(paymentOrderUuid:uuid) : [CallbackList](#CallbackList)| 
 | `paymentReset`(paymentOrderUuid:uuid) : [PaymentOrderRetrieval](#PaymentOrderRetrieval)| 
