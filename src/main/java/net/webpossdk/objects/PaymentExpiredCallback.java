@@ -14,6 +14,9 @@ import java.util.HashMap;
 
 public class PaymentExpiredCallback extends SdkObject{
 
+    private String objectType;
+    public String getObjectType(){ return this.objectType;}
+    public void setObjectType(String value){this.objectType = value;}
     private String createdAt;
     public String getCreatedAt(){ return this.createdAt;}
     public void setCreatedAt(String value){this.createdAt = value;}
@@ -23,9 +26,6 @@ public class PaymentExpiredCallback extends SdkObject{
     private CallbackPaymentOrder object;
     public CallbackPaymentOrder getObject(){ return this.object;}
     public void setObject(CallbackPaymentOrder value){this.object = value;}
-    private String objectType;
-    public String getObjectType(){ return this.objectType;}
-    public void setObjectType(String value){this.objectType = value;}
     public Schema getSchema() throws JsonSerializationException{
         return new Schema(CallbackPaymentOrderSchema.jsonSchema);
     }

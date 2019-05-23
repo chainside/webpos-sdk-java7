@@ -35,9 +35,11 @@ public class ClientCredentialsLoginAction extends ChainsideAuthenticatingAction{
     public HashMap<String, Class<? extends SdkHttpException>> getErrors() {
         HashMap<String, Class<? extends SdkHttpException>> errors = new HashMap();
         errors.putAll(super.getErrors());
+        
         errors.put("1002" , InvalidGrantTypeException.class);
         errors.put("1013" , InvalidScopeException.class);
         errors.put("1001" , UnauthorizedClientException.class);
+        
         return errors;
         }
     @Override
@@ -52,8 +54,8 @@ public class ClientCredentialsLoginAction extends ChainsideAuthenticatingAction{
     public HashMap<String, String> getHeaders(){
         HashMap<String, String> headers = new HashMap();
         headers.put("Accept", "application/json");
+        headers.put("Content-Type", "application/x-www-form-urlencoded");
         headers.put("X-Api-Version", "v1");
-        headers.put("Content-Type", "application/json");
         return headers;
     }
 

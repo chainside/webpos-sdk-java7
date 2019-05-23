@@ -35,8 +35,10 @@ public class PaymentUpdateAction extends ChainsideAuthenticatedAction{
     public HashMap<String, Class<? extends SdkHttpException>> getErrors() {
         HashMap<String, Class<? extends SdkHttpException>> errors = new HashMap();
         errors.putAll(super.getErrors());
+        
         errors.put("3001" , NotFoundException.class);
         errors.put("0013" , InvalidCallbackException.class);
+        
         return errors;
         }
     @Override
@@ -51,8 +53,8 @@ public class PaymentUpdateAction extends ChainsideAuthenticatedAction{
     public HashMap<String, String> getHeaders(){
         HashMap<String, String> headers = new HashMap();
         headers.put("Accept", "application/json");
-        headers.put("X-Api-Version", "v1");
         headers.put("Content-Type", "application/json");
+        headers.put("X-Api-Version", "v1");
         return headers;
     }
 

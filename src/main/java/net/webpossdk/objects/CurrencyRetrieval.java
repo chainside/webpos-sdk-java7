@@ -13,8 +13,8 @@ import java.util.HashMap;
 
 public class CurrencyRetrieval extends SdkObject{
     public String name;
-    public String type;
     public String uuid;
+    public String type;
     public Schema getSchema() throws JsonSerializationException{
             return new Schema(CurrencyRetrievalSchema.jsonSchema);
         }
@@ -28,17 +28,17 @@ public class CurrencyRetrieval extends SdkObject{
         public void setName(String value){
             this.name = value;
         }
-        public String getType(){
-            return this.type;
-        }
-        public void setType(String value){
-            this.type = value;
-        }
         public String getUuid(){
             return this.uuid;
         }
         public void setUuid(String value){
             this.uuid = value;
+        }
+        public String getType(){
+            return this.type;
+        }
+        public void setType(String value){
+            this.type = value;
         }
         public CurrencyRetrieval(){}
 }

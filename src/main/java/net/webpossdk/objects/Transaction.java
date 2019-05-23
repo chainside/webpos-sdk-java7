@@ -14,10 +14,10 @@ import java.util.HashMap;
 public class Transaction extends SdkObject{
     public String created_at;
     public String normalized_txid;
-    public String blockchain_status;
-    public Integer outs_sum;
-    public OutCollection outs;
     public String status;
+    public Integer outs_sum;
+    public String blockchain_status;
+    public OutCollection outs;
     public String txid;
     public Schema getSchema() throws JsonSerializationException{
             return new Schema(TransactionSchema.jsonSchema);
@@ -39,11 +39,11 @@ public class Transaction extends SdkObject{
         public void setNormalizedTxid(String value){
             this.normalized_txid = value;
         }
-        public String getBlockchainStatus(){
-            return this.blockchain_status;
+        public String getStatus(){
+            return this.status;
         }
-        public void setBlockchainStatus(String value){
-            this.blockchain_status = value;
+        public void setStatus(String value){
+            this.status = value;
         }
         public Integer getOutsSum(){
             return this.outs_sum;
@@ -51,17 +51,17 @@ public class Transaction extends SdkObject{
         public void setOutsSum(Integer value){
             this.outs_sum = value;
         }
+        public String getBlockchainStatus(){
+            return this.blockchain_status;
+        }
+        public void setBlockchainStatus(String value){
+            this.blockchain_status = value;
+        }
         public OutCollection getOuts(){
             return this.outs;
         }
         public void setOuts(OutCollection value){
             this.outs = value;
-        }
-        public String getStatus(){
-            return this.status;
-        }
-        public void setStatus(String value){
-            this.status = value;
         }
         public String getTxid(){
             return this.txid;

@@ -14,13 +14,13 @@ import it.sdkboilerplate.validation.*;
 
 import java.util.*;
 
-public class GetWebPosPaymentsAction extends ChainsideAuthenticatedAction{
-    public GetWebPosPaymentsAction(ApiContext ctx){
+public class GetPaymentOrdersAction extends ChainsideAuthenticatedAction{
+    public GetPaymentOrdersAction(ApiContext ctx){
         super(ctx);
     }
     @Override
     public String getRoute(){
-            return "/pos/web/{pos_uuid}/payment-order";
+            return "/payment-order";
     }
     @Override
     public String getVerb(){
@@ -35,7 +35,7 @@ public class GetWebPosPaymentsAction extends ChainsideAuthenticatedAction{
     public HashMap<String, Class<? extends SdkHttpException>> getErrors() {
         HashMap<String, Class<? extends SdkHttpException>> errors = new HashMap();
         errors.putAll(super.getErrors());
-        errors.put("3001" , NotFoundException.class);
+        
         return errors;
         }
     @Override
@@ -50,14 +50,11 @@ public class GetWebPosPaymentsAction extends ChainsideAuthenticatedAction{
     public HashMap<String, String> getHeaders(){
         HashMap<String, String> headers = new HashMap();
         headers.put("Accept", "application/json");
-        headers.put("X-Api-Version", "v1");
         headers.put("Content-Type", "application/json");
+        headers.put("X-Api-Version", "v1");
         return headers;
     }
 
-    public void setPosUuid(String value){
-        this.setRouteParameter("pos_uuid", value);
-    }
     public void setPage(String value){
         this.setQueryParameter("page", value);
     }
