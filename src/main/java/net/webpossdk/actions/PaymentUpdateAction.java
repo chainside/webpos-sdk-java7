@@ -3,66 +3,78 @@ Nigiri auto-generated file
 */
 package net.webpossdk.actions;
 
-import net.webpossdk.objects.*;
-import net.webpossdk.lib.*;
-import net.webpossdk.exceptions.*;
+import it.sdkboilerplate.exceptions.SdkHttpException;
+import it.sdkboilerplate.exceptions.UnserializableObjectException;
+import it.sdkboilerplate.lib.ApiContext;
+import it.sdkboilerplate.objects.SdkBodyType;
+import it.sdkboilerplate.validation.Schema;
+import net.webpossdk.exceptions.InvalidCallbackException;
+import net.webpossdk.exceptions.NotFoundException;
+import net.webpossdk.objects.PaymentUpdateObject;
 
-import it.sdkboilerplate.exceptions.*;
-import it.sdkboilerplate.objects.*;
-import it.sdkboilerplate.lib.*;
-import it.sdkboilerplate.validation.*;
+import java.util.HashMap;
 
-import java.util.*;
-
-public class PaymentUpdateAction extends ChainsideAuthenticatedAction{
-    public PaymentUpdateAction(ApiContext ctx){
+public class PaymentUpdateAction extends ChainsideAuthenticatedAction {
+    public PaymentUpdateAction(ApiContext ctx) {
         super(ctx);
     }
+
     @Override
-    public String getRoute(){
-            return "/payment-order/{payment_order_uuid}/test/";
+    public String getRoute() {
+        return "/payment-order/{payment_order_uuid}/test/";
     }
+
     @Override
-    public String getVerb(){
+    public String getVerb() {
         return "PATCH";
 
     }
+
     @Override
-    public Schema getQueryParametersSchema () {return new Schema();}
+    public Schema getQueryParametersSchema() {
+        return new Schema();
+    }
+
     @Override
-    public Schema getRouteParametersSchema () {return new Schema();}
+    public Schema getRouteParametersSchema() {
+        return new Schema();
+    }
 
     public HashMap<String, Class<? extends SdkHttpException>> getErrors() {
         HashMap<String, Class<? extends SdkHttpException>> errors = new HashMap();
         errors.putAll(super.getErrors());
-        
-        errors.put("3001" , NotFoundException.class);
-        errors.put("0013" , InvalidCallbackException.class);
-        
+
+        errors.put("3001", NotFoundException.class);
+        errors.put("0013", InvalidCallbackException.class);
+
         return errors;
-        }
+    }
+
     @Override
     public Class<? extends SdkBodyType> getRequestBodyClass() {
         return PaymentUpdateObject.class;
-        }
+    }
+
     @Override
     public Class<? extends SdkBodyType> getResponseBodyClass() {
         return null;
-        }
+    }
+
     @Override
-    public HashMap<String, String> getHeaders(){
+    public HashMap<String, String> getHeaders() {
         HashMap<String, String> headers = new HashMap();
-        headers.put("Accept", "application/json");
         headers.put("Content-Type", "application/json");
         headers.put("X-Api-Version", "v1");
+        headers.put("Accept", "application/json");
         return headers;
     }
 
-    public void setPaymentOrderUuid(String value){
+    public void setPaymentOrderUuid(String value) {
         this.setRouteParameter("payment_order_uuid", value);
     }
+
     public void setPaymentUpdateObject(PaymentUpdateObject value)
-        throws UnserializableObjectException{
+            throws UnserializableObjectException {
         this.setRequestBody(value);
     }
-    }
+}

@@ -3,11 +3,6 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <parent>
-        <groupId>org.sonatype.oss</groupId>
-        <artifactId>oss-parent</artifactId>
-        <version>9</version>
-    </parent>
     <groupId>net.chainside.webpossdk</groupId>
     <artifactId>webpos-sdk-java</artifactId>
     <version>1.4.0</version>
@@ -19,16 +14,6 @@
         <maven.compiler.target>1.7</maven.compiler.target>
         <maven.compiler.testTarget>1.7</maven.compiler.testTarget>
     </properties>
-    <distributionManagement>
-        <snapshotRepository>
-            <id>ossrh</id>
-            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
-        </snapshotRepository>
-        <repository>
-            <id>ossrh</id>
-            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
-        </repository>
-    </distributionManagement>
     <dependencies>
         <dependency>
             <groupId>it.moveax.sdkboilerplate</groupId>

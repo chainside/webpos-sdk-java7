@@ -50,8 +50,8 @@ public abstract class ChainsideAuthenticatedAction extends ChainsideAction {
      * Wrapping method for the authentication which performs the ClientCredentialsLogin action and caches the accessToken
      *
      * @param ctx Action api context
-     * @throws SdkHttpException             If the server responds with a status code != 200
-     * @throws SdkException                 If any error occurs during the serialization / deserialization of objects
+     * @throws SdkHttpException If the server responds with a status code != 200
+     * @throws SdkException     If any error occurs during the serialization / deserialization of objects
      */
     public static void login(ApiContext ctx) throws SdkHttpException, SdkException {
 
